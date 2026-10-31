@@ -7,6 +7,8 @@ o	Steps:
 3.	Normalize the train and test data.
 4.	Initialize and build the model. Identify points of improvement and implement them.
 5.	Print the accuracy score and confusion matrix (5 points).
+
+Dataset Download : https://drive.google.com/file/d/1VxDUw9CG2Uac2N8pjojdDmQ8iTl4pVzB/view?usp=sharing
 """
 
 # =====================================================
