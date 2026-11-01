@@ -156,4 +156,31 @@ It displays grid lines on the graph.
 30. What is the final output of your program?
 The value of x approaches -3, and the function value approaches 0.
 
+Q1. What is Supervised Learning?
+Ans: Supervised Learning is a type of Machine Learning in which a model is trained using labelled data (input with correct output).
+
+Example: Spam Email Classification.
+
+Q2. What is Unsupervised Learning?
+Ans: Unsupervised Learning is a type of Machine Learning in which a model learns patterns from unlabelled data without predefined outputs.
+Example: Customer Segmentation using K-Means.
+
+Q3. What is Classification?
+Ans: Classification is a Supervised Learning technique used to predict categories or classes.
+Example: Spam or Not Spam.
+Types of Classification:
+1. Binary Classification: Two classes (Spam / Not Spam).
+2. Multiclass Classification: More than two classes (Red / Green / Blue).
+3. Multilabel Classification: One data point can belong to multiple classes.
+
+Q4. What is Regression?
+Ans: Regression is a Supervised Learning technique used to predict continuous numerical values.
+Example: House Price Prediction.
+Types of Regression:
+1. Linear Regression: Predicts output using a straight-line relationship.
+2. Multiple Linear Regression: Uses multiple input features.
+3. Polynomial Regression: Models curved relationships.
+4. Logistic Regression: Used for classification despite its name.
+
+
 """
