@@ -70,13 +70,13 @@ Gas Fee = Gas Used × Gas Price.
 20. What is Gwei?
 Gwei is a smaller unit of Ether used to express gas prices.
 
-1 ETH = 1,000,000,000 Gwei.
+1 ETH = 1,000,000,000 (10^9) Gwei.
 
 21. Why does every Ethereum transaction require a gas fee?
 To compensate validators for processing transactions and executing smart contracts.
 
 22. Does every transaction have the same gas fee?
-No. Gas fees depend on the computational work required and network demand.
+No, Gas fees depend on the computational work required and network demand.
 
 23. What happens if a transaction fails?
 The transaction may still consume gas, so the sender generally pays the gas fee even if the operation fails.
@@ -95,7 +95,9 @@ Remix is an online development environment used to write, compile, deploy, and t
 A contract is a collection of functions and data stored at a specific address on the blockchain.
 
 28. What is mapping in Solidity?
-Mapping is a key-value data structure. In your Bank contract, it maps a wallet address to its balance.
+Mapping is a key-value data structure. 
+In, your Bank contract 
+It, maps a wallet address to its balance.
 
 Example:
 mapping(address => uint) public balanceOf;
