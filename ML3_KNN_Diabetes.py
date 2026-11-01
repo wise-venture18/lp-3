@@ -278,6 +278,19 @@ Ans:
 - FP (False Positive): Predicted positive when the actual class is negative.
 - FN (False Negative): Predicted negative when the actual class is positive.
 
+Q40. What is Overfitting?
+
+Ans: Overfitting occurs when a model performs well on training data but poorly on unseen testing data.
+
+Q41. What is Underfitting?
+
+Ans: Underfitting occurs when a model is too simple to learn patterns and performs poorly on both training and testing data.
+
+Q42. What is the difference between Classification and Regression?
+
+Ans:
+- Classification predicts categories.
+- Regression predicts continuous numerical values.
 
 
 """
