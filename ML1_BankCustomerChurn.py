@@ -290,3 +290,4 @@ Ans: It displays dataset information such as column names, data types, and non-n
 
 Q27. What does Dense(16, activation="relu") mean?
 Ans: It creates a fully connected hidden layer containing 16 neurons with ReLU activation.
+"""
