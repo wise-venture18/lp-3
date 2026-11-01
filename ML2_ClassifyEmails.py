@@ -315,6 +315,14 @@ Ans: It, displays the number of correct and incorrect predictions for each class
 Q46. What does if knn_accuracy > svm_accuracy do?
 Ans: It, compares the accuracy of both models to identify which model performs better based on accuracy.
 
+Q9. How does the KNN algorithm work?
+
+Ans:
+1. Select the value of K.
+2. Calculate the distance between data points.
+3. Find the K nearest neighbors.
+4. Count their classes.
+5. Assign the majority class as the prediction.
 
 Evaluation and Advanced Questions
 Q47. What is Precision?
