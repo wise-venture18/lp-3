@@ -359,11 +359,11 @@ Comparison and Advanced Questions
 Q23. What is the difference between Dynamic Programming and Branch and Bound?
 
 Ans:
-Dynamic Programming	Branch and Bound
-Uses a DP table	Uses a search tree
-Stores subproblem results	Stores nodes and bounds
-Avoids repeated calculations	Prunes unpromising branches
-Time: O(nW)	Worst case: O(2ⁿ)
+Dynamic Programming     |	Branch and Bound
+Uses a DP table         |	Uses a search tree
+Stores subproblem results|	Stores nodes and bounds
+Avoids repeated calculations|	Prunes unpromising branches
+Time: O(nW)              |	Worst case: O(2ⁿ)
 
 Q24. Which is better: DP or Branch and Bound?
 
