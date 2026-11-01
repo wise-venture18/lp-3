@@ -193,3 +193,100 @@ print("2. Multiple Hidden Layers")
 print("3. Dropout to reduce Overfitting")
 print("4. Early Stopping")
 print("5. Adam Optimizer")
+
+
+
+#=======VIVA Questions======
+"""
+Q9. What is Feature Selection?
+Ans: Feature Selection is the process of selecting relevant input variables for training a machine learning model.
+
+Q11. What is One-Hot Encoding?
+Ans: One-Hot Encoding converts categorical values into separate binary columns.
+
+Q12. Why do we use pd.get_dummies()?
+Ans: To convert categorical columns such as Geography and Gender into numerical columns.
+
+Data Normalization Questions
+Q15. What is Normalization?
+Ans: Normalization is the process of scaling features to a common range or distribution so that features with larger values do not dominate model training.
+
+Q16. Why do we use StandardScaler?
+Ans: StandardScaler standardizes features by subtracting the mean and dividing by the standard deviation.
+
+Q17. What is the formula of StandardScaler?
+->   z = Original value - Mean / Standard Deviation
+
+Q18. Why do we use fit_transform() on training data and transform() on testing data?
+Ans: To, calculate scaling parameters using training data only and apply the same parameters to testing data, preventing data leakage.
+
+Neural Network Questions
+Q19. What are the main layers of a Neural Network?
+Ans:
+1. Input Layer
+2. Hidden Layer
+3. Output Layer
+
+Q20. What is an Activation Function?
+Ans: An Activation Function determines whether and how strongly 
+     a neuron should activate based on its input.
+
+Q21. What is ReLU?
+Ans: ReLU stands for Rectified Linear Unit. It returns zero for negative values and the same value for positive values.
+     ReLU(x)= max(0,x)
+
+Q22. Why do we use Sigmoid in the output layer?
+Ans: Sigmoid converts the output into a probability between 0 and 1, making it suitable for binary classification.
+
+Q23. What is Dropout?
+Ans: Dropout is a regularization technique that randomly disables some neurons during training to reduce overfitting.
+
+Q24. What is Overfitting?
+Ans: Overfitting occurs when a model performs well on training data but poorly on unseen testing data.
+
+Q28. What is Adam Optimizer?
+Ans: Adam stands for Adaptive Moment Estimation. It,
+     Is an optimization algorithm that adjusts the learning rate for model parameters.
+
+Q29. What is a Loss Function?
+Ans: A loss function measures the difference between actual and predicted outputs.
+
+Q30. Why do we use Binary Crossentropy?
+Ans: Because this is a binary classification problem with two possible outputs, 0 and 1.
+
+Q31. What is Early Stopping?
+Ans: Early Stopping stops model training when validation performance stops improving, helping prevent overfitting.
+
+Q32. What does patience=5 mean?
+Ans: Training stops if the monitored validation loss does not improve for 5 consecutive epochs.
+
+Q33. What is Accuracy?
+Ans: Accuracy = correct prediction/total prediction x 100
+
+Q34. What is a Confusion Matrix?
+Ans: A Confusion Matrix is a table used to evaluate 
+     a classification model by comparing actual and 
+     predicted values.
+
+Q35. What are TP, TN, FP, and FN?
+Ans:
+- TP (True Positive): Model correctly predicts the positive class.
+- TN (True Negative): Model correctly predicts the negative class.
+- FP (False Positive): Model incorrectly predicts positive when the actual class is negative.
+- FN (False Negative): Model incorrectly predicts negative when the actual class is positive.
+
+Q17. What does axis=1 mean in data.drop()?
+Ans: It indicates that columns should be removed. axis=0 is used to remove rows.
+
+Q2. What is Underfitting?
+Ans: Underfitting occurs when a machine learning model is too simple to learn the patterns in the training data, 
+     resulting in poor performance on both training and testing data.
+
+Q1. What is Precision?
+Ans: P = TP/TP+FP
+
+Q11. What does data.info() do?
+Ans: It displays dataset information such as column names, data types, and non-null values.
+
+Q27. What does Dense(16, activation="relu") mean?
+Ans: It creates a fully connected hidden layer containing 16 neurons with ReLU activation.
