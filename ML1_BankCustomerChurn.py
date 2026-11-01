@@ -198,6 +198,15 @@ print("5. Adam Optimizer")
 
 #=======VIVA Questions======
 """
+Q4. What is a Neural Network?
+Ans: A Neural Network is a machine learning model inspired by the human brain that learns patterns from data.
+
+Q5. What type of machine learning problem is this?
+Ans: Supervised Learning and Binary Classification.
+
+Q6. What is Binary Classification?
+Ans: Binary Classification is a classification problem in which the output has only two possible classes, such as 0 and 1.
+
 Q9. What is Feature Selection?
 Ans: Feature Selection is the process of selecting relevant input variables for training a machine learning model.
 
