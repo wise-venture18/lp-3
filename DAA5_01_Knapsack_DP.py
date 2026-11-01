@@ -1,6 +1,6 @@
 # **DAA-5:** Write a program to solve a 0-1 Knapsack problem using dynamic programming or branch and bound strategy.
-# 0/1 Knapsack using Dynamic Programming
 
+# 0/1 Knapsack using Dynamic Programming
 n = int(input("Enter number of items: "))
 
 weight = []
@@ -40,7 +40,141 @@ for i in range(1, n + 1):
 
 # Display maximum profit
 print("\nMaximum Profit:", dp[n][capacity])
-#--------END------------
+#--------END OF PROGRAM------------
+
+
+# OR (Alternative) 0/1 Knapsack using Branch and Bound
+
+class Node:
+    def __init__(self, level, profit, weight, bound):
+        self.level = level
+        self.profit = profit
+        self.weight = weight
+        self.bound = bound
+
+
+# Calculate upper bound
+def calculate_bound(node, n, capacity, weight, profit):
+
+    if node.weight >= capacity:
+        return 0
+
+    bound = node.profit
+    total_weight = node.weight
+    j = node.level + 1
+
+    # Add complete items while capacity is available
+    while j < n and total_weight + weight[j] <= capacity:
+        total_weight += weight[j]
+        bound += profit[j]
+        j += 1
+
+    # Add fraction of next item for upper bound
+    if j < n:
+        bound += (capacity - total_weight) * profit[j] / weight[j]
+
+    return bound
+
+
+# Branch and Bound function
+def knapsack_branch_bound(weight, profit, capacity):
+
+    n = len(weight)
+
+    # Sort items by profit/weight ratio
+    items = sorted(
+        zip(weight, profit),
+        key=lambda x: x[1] / x[0],
+        reverse=True
+    )
+
+    weight = [item[0] for item in items]
+    profit = [item[1] for item in items]
+
+    # Create root node
+    root = Node(-1, 0, 0, 0)
+    root.bound = calculate_bound(
+        root, n, capacity, weight, profit
+    )
+
+    queue = [root]
+    max_profit = 0
+
+    # Explore nodes
+    while queue:
+
+        node = queue.pop(0)
+
+        if node.bound > max_profit:
+
+            next_level = node.level + 1
+
+            if next_level < n:
+
+                # Include the next item
+                include = Node(
+                    next_level,
+                    node.profit + profit[next_level],
+                    node.weight + weight[next_level],
+                    0
+                )
+
+                if include.weight <= capacity:
+                    max_profit = max(
+                        max_profit, include.profit
+                    )
+
+                include.bound = calculate_bound(
+                    include, n, capacity, weight, profit
+                )
+
+                if include.bound > max_profit:
+                    queue.append(include)
+
+                # Exclude the next item
+                exclude = Node(
+                    next_level,
+                    node.profit,
+                    node.weight,
+                    0
+                )
+
+                exclude.bound = calculate_bound(
+                    exclude, n, capacity, weight, profit
+                )
+
+                if exclude.bound > max_profit:
+                    queue.append(exclude)
+
+    return max_profit
+
+
+# Main Program
+print("===== 0/1 Knapsack using Branch and Bound =====")
+
+n = int(input("Enter number of items: "))
+
+weight = []
+profit = []
+
+for i in range(n):
+    w = int(input("Enter weight: "))
+    p = int(input("Enter profit: "))
+
+    weight.append(w)
+    profit.append(p)
+
+capacity = int(input("Enter knapsack capacity: "))
+
+result = knapsack_branch_bound(weight, profit, capacity)
+
+print("\nMaximum Profit:", result)
+
+#--- END OF PROGRAM-----
+
+
+
+
 
 #====SAMPLE INPUT========
 """
@@ -176,5 +310,78 @@ Q27. What is the difference between Dynamic Programming and Greedy Algorithm?
 Ans: Dynamic Programming considers multiple possibilities and stores their results, whereas Greedy selects the best local option at each step.
 
 Q28. Where is the Knapsack Problem used?
+Ans: It is used in resource allocation, cargo loading, investment planning, and budget optimization.
+
+
+Branch and Bound Questions
+Q13. What is Branch and Bound?
+
+Ans: Branch and Bound is an algorithmic technique that divides a problem into smaller branches and eliminates branches that cannot produce a better solution.
+
+Q14. What are the two main operations in Branch and Bound?
+
+Ans: Branching and Bounding.
+
+Q15. What is Branching?
+
+Ans: Branching divides a problem into smaller subproblems by considering different choices.
+
+Q16. What is Bounding?
+
+Ans: Bounding calculates an upper or lower limit to estimate the best possible solution from a branch.
+
+Q17. What is Pruning?
+
+Ans: Pruning means removing branches that cannot produce a better solution.
+
+Q18. Why do we sort items by profit-to-weight ratio in Branch and Bound?
+
+Ans: To calculate a tighter upper bound using the fractional knapsack approach.
+
+Q19. What is an upper bound?
+
+Ans: An upper bound is an estimated maximum profit that can potentially be obtained from a particular node.
+
+Q20. What is a Node in Branch and Bound?
+
+Ans: A node represents a particular state of the problem, including its level, profit, weight, and bound.
+
+Q21. What is the purpose of the calculate_bound() function?
+
+Ans: It calculates the maximum possible profit estimate from a node to decide whether that branch should be explored.
+
+Q22. What is the time and space complexity of Branch and Bound?
+
+Ans:
+- Worst-case Time Complexity: O(2ⁿ), excluding sorting overhead.
+- Worst-case Space Complexity: O(2ⁿ), depending on the number of nodes stored.
+Comparison and Advanced Questions
+Q23. What is the difference between Dynamic Programming and Branch and Bound?
+
+Ans:
+Dynamic Programming	Branch and Bound
+Uses a DP table	Uses a search tree
+Stores subproblem results	Stores nodes and bounds
+Avoids repeated calculations	Prunes unpromising branches
+Time: O(nW)	Worst case: O(2ⁿ)
+
+Q24. Which is better: DP or Branch and Bound?
+
+Ans: It depends on the problem. DP is generally suitable when capacity is manageable, while Branch and Bound can be effective when bounding eliminates many branches.
+
+Q25. Why is Greedy not always optimal for 0/1 Knapsack?
+
+Ans: Because selecting items based only on profit-to-weight ratio may not produce the maximum total profit.
+
+Q26. Can Branch and Bound give an optimal solution?
+
+Ans: Yes. It gives an optimal solution when valid bounds and pruning rules are used.
+
+Q27. What happens if the knapsack capacity is zero?
+
+Ans: The maximum profit is zero because no item can be selected.
+
+Q28. Where is the Knapsack Problem used?
+
 Ans: It is used in resource allocation, cargo loading, investment planning, and budget optimization.
 """
